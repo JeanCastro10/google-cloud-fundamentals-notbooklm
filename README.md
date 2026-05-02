@@ -3,58 +3,77 @@ Estudos e projetos práticos em Google Cloud Platform, abrangendo infraestrutura
 
 
  
-Contexto e Objetivos
+☁️ Jornada Google Cloud: De Fundamentos à Arquitetura Cloud Native
+Este repositório contém meu caderno de estudos e projetos práticos sobre Google Cloud Platform (GCP). O material explora como a computação em nuvem transforma a infraestrutura física em tecnologia como serviço, permitindo escalabilidade global, alta disponibilidade e segurança robusta.
+🎯 Contexto e Objetivos
+A migração para a nuvem não é apenas uma mudança de servidor, mas uma mudança de paradigma. O objetivo deste estudo é dominar as ferramentas do Google Cloud para resolver desafios reais de negócios, como latência global e picos de tráfego, utilizando a analogia central de que a nuvem funciona como um aluguel de recursos (CPU, memória e rede), onde a manutenção física é responsabilidade do provedor
 
-O propósito deste repositório é consolidar o conhecimento sobre as soluções de computação em nuvem providas pelo Google, focando em performance de aplicações, infraestrutura e segurança
+Objetivos principais:
+Compreender os modelos de serviço (IaaS, PaaS, SaaS) e a Matriz de Responsabilidade Compartilhada
 
-Objetivos de Estudo:
-Reconhecer os diferenciais dos serviços do Google Cloud (GCP) em relação ao modelo tradicional on-premises
+Dominar a infraestrutura global: Regiões, Zonas e Redes VPC
+
+Explorar arquiteturas Cloud Native e Serverless para otimização de custos e performance
 
 
-Dominar a configuração de infraestrutura elástica e aplicações Cloud Native
+--------------------------------------------------------------------------------
+📚 Curadoria de Fontes
+Para este estudo, utilizei uma curadoria de 32 fontes, incluindo documentos técnicos e transcrições de aulas com o Professor Iago Leone. As principais referências foram:
+Fundamentos de Cloud: Transcrições sobre a história e conceitos básicos (IaaS vs PaaS vs SaaS)
+
+Infraestrutura de Rede: Documentação sobre VPCs globais e subnets regionais
+
+Computação e VMs: Guia sobre Compute Engine e famílias de máquinas (E2, N2, C2)
+
+Segurança e IAM: Material focado em Identity and Access Management e proteção contra ataques (Cloud Armor)
+
+Aplicações Modernas: Estudo sobre arquiteturas Stateless, Serverless (Cloud Run) e Mensageria (Pub/Sub)
 
 
-Identificar e aplicar as melhores práticas de segurança (IAM) e operações (SRE/DevOps) em ambientes de nuvem
+--------------------------------------------------------------------------------
+🧠 Engenharia de Prompts e "Cicatrizes"
+Abaixo, registro o processo de interação com a IA (NotebookLM) para consolidar o conhecimento.
+Pergunta Estratégica (Prompt):
+"A startup TechNova está enfrentando problemas de latência entre regiões e quedas em horários de pico. Como o Google Cloud pode resolver isso utilizando subnets e comunicações assíncronas?"
+Raciocínio Técnico (A "Cicatriz"): Um dos maiores desafios no aprendizado foi entender que a VPC do Google Cloud é global
+. Diferente de outros provedores, você pode criar uma rede que abrange o mundo todo, mas deve alocar as subnets regionalmente para reduzir a latência via geolocalização
+. Além disso, a solução para os picos de tráfego não foi apenas "aumentar a máquina", mas adotar o Pub/Sub para desacoplar sistemas, garantindo que o checkout não trave se o sistema de nota fiscal falhar (comunicação assíncrona)
 
-2. Curadoria de Fontes
-Para compor este estudo, foram selecionadas fontes que abrangem desde a base teórica até a aplicação prática:
-Fonte 1: Fundamentos e Modelos de Serviço: Explora as diferenças entre IaaS, PaaS e SaaS e o modelo de responsabilidade compartilhada
 
-Fonte 2: Infraestrutura de Redes (VPC): Detalha o funcionamento da rede global do Google e o uso de subnets para baixa latência
+--------------------------------------------------------------------------------
+🚀 Miniguia de Estudo (Entrega Final)
+1. Resumo Estruturado: O Ecossistema GCP
+Modelos de Serviço: No IaaS (Compute Engine), você cuida do SO e da aplicação
+. No PaaS (Cloud Run), você foca apenas no código
+. No SaaS (Gmail), você apenas consome o serviço
 
-Fonte 3: Computação e Máquinas Virtuais: Guia sobre o uso do Compute Engine e a escolha de famílias de máquinas (E2, N2, C2)
+Infraestrutura: O Google utiliza uma rede privada de cabos submarinos
+. Para alta disponibilidade, os recursos devem ser distribuídos em diferentes Zonas (a, b, c) dentro de uma Região
 
-Fonte 4: Arquiteturas Modernas: Focada em soluções Serverless (Cloud Run) e mensageria assíncrona (Pub/Sub)
+Segurança: A segurança física tem 6 camadas nos datacenters
+. Virtualmente, o IAM garante que cada usuário tenha o acesso mínimo necessário (Princípio do Menor Privilégio)
 
-Fonte 5: Estudo de Caso TechNova: Um cenário prático de troubleshooting para resolver problemas de latência e segurança em uma startup
+2. Glossário de Conceitos Chave
+VPC (Virtual Private Cloud): Rede virtual privada e segura para conectar seus recursos
 
-3 Engenharia de Prompts e "Cicatrizes"
-Nesta seção, você deve documentar como interagiu com a IA para extrair o conteúdo.
-Prompt Estratégico: "Considere a situação da TechNova e proponha soluções para otimizar redes e garantir a segurança".
-Resultado: A IA conectou o conceito de VPC Global com a necessidade de reduzir latência regional
+Cloud Run: Serviço PaaS para rodar containers de forma Serverless e escalável
 
-"Cicatriz" (Troubleshooting): Durante o estudo, uma dificuldade encontrada foi identificar a lista exata de produtos do Free Tier, pois as fontes mencionavam sua existência para estudo, mas não listavam os nomes nominais (como BigQuery ou Cloud Storage), o que exigiu uma busca externa complementar
+Pub/Sub: Ferramenta de mensageria para permitir que sistemas conversem sem estarem "sincronizados"
 
-4. Miniguia de Estudo (Entrega Final)
-Resumo Estruturado
-A computação em nuvem no GCP funciona como um aluguel de recursos (CPU, memória e rede) sob demanda
- A infraestrutura é organizada em Regiões e Zonas, conectadas por uma rede privada de cabos submarinos, garantindo alta disponibilidade
- O sucesso de uma migração depende de adotar uma arquitetura Cloud Native, preferencialmente Stateless, para permitir escalabilidade automática e redução de custos
+IAM (Identity and Access Management): Gestão de quem pode fazer o quê em cada recurso
 
-Glossário de Conceitos
-VPC (Virtual Private Cloud): Rede virtual privada global onde os recursos são isolados e configurados
+Cloud Native: Aplicações desenhadas para serem leves, elásticas e econômicas na nuvem
 
-IAM (Identity and Access Management): Gestão de permissões para garantir que cada usuário acesse apenas o necessário
+3. Caso Prático: Solução TechNova
+Para a startup fictícia estudada, a arquitetura proposta incluiu:
+Subnets Regionais: Redução de latência atendendo usuários pelo servidor mais próximo
 
-Compute Engine: Serviço de IaaS para criação e gestão de máquinas virtuais
+Arquitetura Stateless: Uso de Cloud Run para escalar de 1 a 1 milhão de usuários instantaneamente
 
-Cloud Run: Plataforma PaaS para execução de containers de forma serverless
+Segurança Robusta: Implementação de MFA (Autenticação de Múltiplos Fatores) e Cloud Armor para mitigar ataques DDoS
 
-Pub/Sub: Serviço de mensageria para comunicação assíncrona entre sistemas
+4. Prompts de Revisão (Prontos para Uso)
+"Explique a diferença de responsabilidade de segurança entre uma VM e o Cloud Run."
+"Como o uso de uma arquitetura sem estado (Stateless) ajuda a economizar dinheiro no Google Cloud?"
+"Quais métricas o Cloud Monitoring deve coletar para prever quedas de sistema?"
 
-Prompts Reutilizáveis para Revisão
-"Explique a diferença entre uma arquitetura Stateful e Stateless no contexto de escalabilidade do Cloud Run."
-
-"Quais são as 6 camadas de segurança física dos datacenters do Google?"
-.
-"Como a matriz de responsabilidade compartilhada muda ao migrar de Compute Engine (IaaS) para Cloud Run (PaaS)?"
