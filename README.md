@@ -5,6 +5,8 @@ Estudos e projetos práticos em Google Cloud Platform, abrangendo infraestrutura
  
 ☁️ Jornada Google Cloud: De Fundamentos à Arquitetura Cloud Native
 Este repositório contém meu caderno de estudos e projetos práticos sobre Google Cloud Platform (GCP). O material explora como a computação em nuvem transforma a infraestrutura física em tecnologia como serviço, permitindo escalabilidade global, alta disponibilidade e segurança robusta.
+
+
 🎯 Contexto e Objetivos
 A migração para a nuvem não é apenas uma mudança de servidor, mas uma mudança de paradigma. O objetivo deste estudo é dominar as ferramentas do Google Cloud para resolver desafios reais de negócios, como latência global e picos de tráfego, utilizando a analogia central de que a nuvem funciona como um aluguel de recursos (CPU, memória e rede), onde a manutenção física é responsabilidade do provedor
 
